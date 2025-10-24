@@ -57,12 +57,27 @@ def melhor_volta_por_piloto(voltas: List[Volta]) -> Dict[str, Volta]:
     return melhores_por_piloto
 
 
-
 # Bônus 2
 def melhor_volta_geral(voltas: List[Volta]) -> Volta:
     return min(voltas, key=lambda v: v.tempo_volta)
 
         
+        
+# Bônus 3
+def diferenca_para_vencedor(resultados_ordenados: List[Dict]) -> List[Dict]:
+    if not resultados_ordenados:
+        return []
 
+    vencedor_tempo = resultados_ordenados[0]["tempo_total"]
+
+    resultados_com_diferenca = []
+
+    for piloto in resultados_ordenados:
+        diferenca = piloto["tempo_total"] - vencedor_tempo
+        piloto_atualizado = piloto.copy()
+        piloto_atualizado["diferenca_vencedor"] = diferenca
+        resultados_com_diferenca.append(piloto_atualizado)
+
+    return resultados_com_diferenca
 
 
