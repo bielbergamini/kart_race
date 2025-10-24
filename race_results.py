@@ -22,14 +22,21 @@ def gerar_resultado(voltas: List[Volta]) -> List[Dict]:
         voltas_completadas = len(voltas_piloto)
 
         tempo_total = timedelta()
+        soma_velocidade = 0.0
+
         for volta in voltas_piloto:
             tempo_total += volta.tempo_volta
+            soma_velocidade += volta.velocidade_media
+
+        # Calcula a velocidade média
+        velocidade_media_total = soma_velocidade / voltas_completadas if voltas_completadas > 0 else 0.0
 
         resumo_piloto = {
             "codigo": codigo_piloto,
             "nome": nome_piloto,
             "voltas": voltas_completadas,
             "tempo_total": tempo_total,
+            "velocidade_media_total": velocidade_media_total,
         }
         
         tabela_resumo.append(resumo_piloto)
@@ -61,7 +68,6 @@ def melhor_volta_por_piloto(voltas: List[Volta]) -> Dict[str, Volta]:
 def melhor_volta_geral(voltas: List[Volta]) -> Volta:
     return min(voltas, key=lambda v: v.tempo_volta)
 
-        
         
 # Bônus 3
 def diferenca_para_vencedor(resultados_ordenados: List[Dict]) -> List[Dict]:

@@ -49,6 +49,7 @@ def main():
             piloto["voltas"],
             str(piloto["tempo_total"]),
             str(piloto["diferenca_vencedor"]),
+            f"{piloto['velocidade_media_total']:.3f}",
         ])
 
     # Exibe em formato tabular
@@ -60,7 +61,8 @@ def main():
             "Nome",
             "Voltas",
             "Tempo Total",
-            "Diferença p/ Vencedor"
+            "Diferença p/ Vencedor",
+            "Velocidade Média (km/h)",
         ],
         tablefmt="grid"
     ))
