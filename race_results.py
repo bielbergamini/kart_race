@@ -58,3 +58,11 @@ def melhor_volta_por_piloto(voltas: List[Volta]) -> Dict[str, Volta]:
 
 
 
+# Bônus 2
+def melhor_volta_geral(voltas: List[Volta]) -> Volta:
+    return min(voltas, key=lambda v: v.tempo_volta)
+
+        
+
+
+
