@@ -1,4 +1,4 @@
-# 🏎️ Observações do Desafio – Corrida de Kart | Grupo CRIAR
+# 🏎️ Observações do Desafio – Corrida de Kart
 
 ## Comentários Gerais
 
